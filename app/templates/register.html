@@ -1,0 +1,101 @@
+{% extends "header.html" %}
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>JobEntry - Job Portal Website Template</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    <!-- Favicon -->
+    
+</head>
+
+<body>
+      <!-- Header End -->
+      <div class="container-xxl py-5 bg-dark page-header mb-5">
+        <div class="container my-5 pt-5 pb-4">
+            <h1 class="display-3 text-white mb-3 animated slideInDown">Register</h1>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb text-uppercase">
+                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                    <li class="breadcrumb-item text-white active" aria-current="page">Register</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+    <!-- Header End -->
+
+   
+        <!-- Contact Start -->
+        <div class="container-xxl py-5">
+            <div class="container">
+                <h1 class="text-center mb-5 wow fadeInUp" data-wow-delay="0.1s">register </h1>
+                
+                    
+                    <div class="col-md-6">
+                        <div class="wow fadeInUp" data-wow-delay="0.5s">
+                            <span>{{msg}}</span>
+                            <form action="{%url 'register' %}" method="post">
+                                {% csrf_token %}
+                                <div class="row g-3">
+                                    <div class="col-md-6">
+                                        <div class="form-floating">
+                                            <select class="form-select border-0" name="user_type">
+                                                <option value="seeker">Job Seeker</option>
+                                                <option value="sompany">Company</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="form-floating">
+                                            <input type="text" name="fname" class="form-control" id="subject" placeholder="First Name" required>
+                                            <label for="subject">First Name</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="form-floating">
+                                            <input type="text" name="lname" class="form-control" id="subject" placeholder="Last Name" required>
+                                            <label for="subject">Last Name</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="form-floating">
+                                            <input type="email" name="email" class="form-control" id="subject" placeholder="Email" required>
+                                            <label for="subject">Email</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="form-floating">
+                                            <input type="password" class="form-control" name="pwd" id="subject" placeholder="Password" required>
+                                            <label for="subject">Password</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="form-floating">
+                                            <input type="password" class="form-control" name="cpwd" id="subject" placeholder="Confirm Password" required>
+                                            <label for="subject"> Confirm Password</label>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="col-12">
+                                        <button class="btn btn-primary w-100 py-3" type="submit">Register</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Contact End -->
+        
+
+</body>
+
+</html>
+{% endblock %}

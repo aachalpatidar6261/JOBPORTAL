@@ -1,0 +1,62 @@
+{% extends "company_header.html" %}
+{% load static %}
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+</head>
+
+<body>
+</br></br>
+</br>
+            <!-- Jobs Start -->
+        <div class="container-xxl py-5">
+            <div class="container">
+                <h1 class="text-center mb-5 wow fadeInUp" data-wow-delay="0.1s">Job Listing</h1>
+                <div class="tab-class text-center wow fadeInUp" data-wow-delay="0.3s">
+                </br>
+                    <span>{{msg}}</span></br></br></br>
+                    <form action="{% url 'company_add_jobs' %}" method="post">
+                        {% csrf_token %}
+                        <div class="row g-3">
+                            
+                            <div class="col-md-4">
+                                <select class="form-select border-0" name="keyword" required>
+                                    <option selected>Keyword</option>
+                                    <option value="Python Developer">Python Developer</option>
+                                    <option value="Marketing Manager">Marketing Manager</option>
+                                    <option value="Product Designer">Product Designer</option>
+                                    <option value="Software Engineer">Software Engineer</option>                                    
+                                </select>
+                            </div>
+                            <div class="col-md-4">
+                                <select class="form-select border-0" name="category" required>
+                                    <option selected>Category</option>
+                                    <option value="Full Time">Full Time</option>
+                                    <option value="Part Time">Part Time</option>
+                                    
+                                </select>
+                            </div>
+                            <div class="col-md-4">
+                                <select class="form-select border-0" name="location" required>
+                                    <option selected>Location</option>
+                                    <option value="Chennai">Chennai</option>
+                                    <option value="Hyderabad">Hyderabad</option>
+                                </select>
+                            </div>
+                            <div class="col-12">
+                                <button class="btn btn-primary w-100 py-3" type="submit">ADD JOBS</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        
+</body>
+
+</html>
+{% endblock %}
