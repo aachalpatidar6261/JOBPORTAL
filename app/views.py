@@ -14,19 +14,22 @@ def category(request):
     return render(request,'category.html')
 
 def apply(request):
-    company=User.objects.get(email=request.session['email'])
-    if request.method=="POST":
-        Apply.objects.create(            
-            fullname=request.POST['fullname'],
-            email=request.POST['email'],
-            number=request.POST['number'],
-            file=request.FILES['file'],        
+    try:
+        company=User.objects.get(email=request.session['email'])
+        if request.method=="POST":
+            Apply.objects.create(            
+                fullname=request.POST['fullname'],
+                email=request.POST['email'],
+                number=request.POST['number'],
+                file=request.FILES['file'],        
 
-        )
-        msg="Job Add Successfully"
-        return render(request,'apply.html',{'msg':msg})
-    else:
-        return render(request,'apply.html')
+            )
+            msg="Job Add Successfully"
+            return render(request,'apply.html',{'msg':msg})
+        else:
+            return render(request,'apply.html')
+    except:
+        return render(request,'login.html')
 
 def job_list(request):
     jobs=Add_job.objects.all()
